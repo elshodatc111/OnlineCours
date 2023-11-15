@@ -1,0 +1,45 @@
+.menu .logo{
+    color:#000;
+    font-weight: 750;
+}
+.menu .nav-link{
+    color:#E8EBEE;
+    font-weight: 600;
+}
+.menu .nav-link:hover{
+    color:#fff;
+}
+.menu .activ{
+    color:#fff;
+}
+
+.blog .card-footer{
+    font-size: 16px;
+}
+.blog .card-footer i{
+    font-size: 18px;
+}
+.blog .card-footer .table tr td{
+    background-color: #F8F8F8;
+    margin: 0;
+    padding: 0;
+    font-size:14px;
+    font-weight: 700;
+    color:green
+}
+.blog .card{
+    min-height: 380px;
+    max-height: 380px;
+}
+.blog .card .card-text{
+    margin: 0;
+    padding: 0;
+}
+.blog .card-img-top{
+    max-height: 220px;
+    background-color:#fff;
+}
+
+.footers ul li a i{
+    color:blue;
+}
