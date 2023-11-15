@@ -43,3 +43,8 @@
 .footers ul li a i{
     color:blue;
 }
+
+.index_eye .card-body ul li b{
+    width:50%;
+    text-align:right;
+}
