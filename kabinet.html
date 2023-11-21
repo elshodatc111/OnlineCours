@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>Offcanvas navbar template · Bootstrap v5.3</title>
+    <title>Kobinet</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/offcanvas-navbar/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -52,27 +52,64 @@
       </div>
     </div>
     <!--Asosiy-->
-    <div class="row blog">
-      <div class="col-lg-4 col-sm-6 col-12 my-2">
-        <div class="card">
-          <img src="https://leader-id.storage.yandexcloud.net/event_photo/244710/618a3eaea05d4341146829.png" class="card-img-top">
-          <div class="card-body text-center">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title </p>
+    <div class="row index_eye">
+          <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+              <nav>
+              <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Shaxsiy malumotlarim</button>
+                  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Mening kurslarim</button>
+              </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+              <!-- Mavzu videosi -->
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="card pt-2" style="width: 100%;">
+                      <img src="https://leader-id.storage.yandexcloud.net/event_photo/244710/618a3eaea05d4341146829.png" class="card-img-top" style="width: 150px;height:150px;border-radius: 150px;margin:0 auto">
+                      <div class="card-body">
+                        <h5 class="card-title w-100 text-center">Elshod Musurmonov</h5>
+                        <form action="" method="post" class="text-center mt-3">
+                            <label class="custom-file-label">Rasm tanlang (.jpg  .png)</label>
+                            <input type="file" class="form-control" required>
+                            <input type="submit" class="btn btn-primary mt-3" value="Rasmni almashtirish">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <form>
+                      <div class="form-row">
+                        <div class="form-group pt-3">
+                          <label class="mb-1">Familya ismingiz <span style="color:red">*</span></label>
+                          <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" class="form-control" placeholder="1234 Main St" required>
+                        </div>
+                        <div class="form-group pt-3">
+                          <label class="mb-1">Yashash joyingiz</label>
+                          <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" class="form-control" placeholder="Yashash manzilingiz">
+                        </div>
+                        <div class="form-row pt-3">
+                          <div class="form-group col-md-6">
+                            <label class="mb-1">Telefon raqamingiz</label>
+                            <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" class="form-control">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label class="mb-1">Elektron pochtangiz</label>
+                            <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" class="form-control">
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3" style="display: none;" id="buttons">O'zgarishlarni saqlash</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Mavzu haqida testlar -->
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <b>KURS haqida qisqacha matn hajmi 250 belgidan oshmasin.</b>
+              </div>
+              </div>
           </div>
-          <div class="card-footer text-muted">
-            <table class="table table-borderless p-0 m-0 text-center">
-              <tr>
-                <td><a href="" class="btn btn-primary p-0 px-2">Darslarni o'rganish</a></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-      
-      
-    </div>
-    
+  </div>
 
 
 
