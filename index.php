@@ -33,7 +33,7 @@
             <a class="nav-link" style="font-weight: 700;" href="./kabinet.php">KABINET</a>
           </li>
           <li class="nav-item" style="<?php if(!isset($_COOKIE['UserID'])){echo 'display:none;';} ?>">
-            <a class="nav-link" style="font-weight: 700;" href="./logout.php">CHIQISH</a>
+            <a class="nav-link text-danger" style="font-weight: 700;" href="./logout.php">CHIQISH</a>
           </li>
         </ul>
       </div>
@@ -45,7 +45,7 @@
     <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
       <div class="">
         <h1 class="h2 mb-0 text-primary">ATKO o'quv markazi</h1>
-        <small class="text-dark">Online darslar platformasi</small>
+        <small class="text-dark">Online darslar platformasi<?php echo $_COOKIE['UserID']; ?></small>
       </div>
     </div>
     <!--Asosiy-->
@@ -67,8 +67,6 @@
           </div>
         </div>
       </div>
-      
-      
     </div>
     
 

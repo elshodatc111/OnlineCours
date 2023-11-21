@@ -15,13 +15,20 @@
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 
   <main class="form-signin w-100 m-auto">
-    <form>
+    <form action="login1.php" method="GET">
       <h1 class="h3 mb-3 fw-normal w-100 text-center" style="font-weight: 900;">KIRISH</h1>
       <div class="form-floating mb-3">
-        <p class="w-100 text-center text-danger">Telefon raqam ro'yhatdan o'tmagan</p>
+        <?php
+          if(isset($_GET['phone'])){
+            echo "<p class='w-100 text-center text-danger'>Telefon raqam ro'yhatdan o'tmagan</p>";
+          }elseif(isset($_GET['phone'])){
+            echo "<p class='w-100 text-center text-danger'>Telefon raqam noto'g'ri.</p>";
+          }
+        ?>
+        
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control phone" value="998" placeholder="Telefon raqami" required>
+        <input type="text" name="Phone" class="form-control phone" value="998" placeholder="Telefon raqami" required>
         <label>Telefon raqam</label>
       </div>
       <button class="btn btn-primary w-100 py-2" type="submit">Kirish</button>
