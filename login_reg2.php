@@ -18,8 +18,8 @@
     <form>
       <h1 class="h3 fw-normal w-100 text-center" style="font-weight: 900;">Kodni tasdiqlang</h1>
       <div class="form-floating">
-        <p class="w-100 text-center text-danger p-0 m-0">Tasdiqlash kodi 4505 telefon raqamiga yuborildi.</p>
-        <p class="w-100 text-center text-danger p-0 m-0">Tasdiqlash kodi noto'g'ri.</p>
+        <p class="w-100 text-center text-success p-0 m-0">Tasdiqlash kodi <?php echo $Phone1; ?> raqamiga yuborildi.</p>
+        <p class="w-100 text-center text-danger p-0 m-0" style='display:none;'>Tasdiqlash kodi noto'g'ri.</p>
       </div>
       <div class="form-floating mb-3">
         <input type="text" class="form-control code" placeholder="Tasdiqlash kodi" required>

@@ -15,17 +15,19 @@
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 
   <main class="form-signin w-100 m-auto">
-    <form>
+    <form action="./login_reg1.php" method="GET">
       <h1 class="h3 mb-3 fw-normal w-100 text-center" style="font-weight: 900;">Ro'yhatdan o'tish</h1>
+      <?php
+        if(isset($_GET['registr'])){
+          echo "<p class='w-100 text-center text-danger'>Telefon raqam oldin ro'yhatdan o'tgan.</p>";
+        }
+      ?>
       <div class="form-floating mb-3">
-        <p class="w-100 text-center text-danger">Login toki parol xato</p>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder="Parol" required>
+        <input type="text" class="form-control" name="name" placeholder="Ismingiz" required>
         <label>Ismingiz</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control phone" value="998" placeholder="Telefon raqami" required>
+        <input type="text" class="form-control phone" value="998" name="phone" placeholder="Telefon raqami" required>
         <label>Telefon raqam</label>
       </div>
       <button class="btn btn-primary w-100 py-2" type="submit">Ro'yhatdan o'tish</button>
