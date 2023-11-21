@@ -19,27 +19,27 @@
   <!-- MENU-->
   <nav class="navbar navbar-expand-lg navbar-primary bg-primary ">
     <div class="container">
-      <a class="navbar-brand" style="font-weight: 800;" href="./index.html">ONLINE KURS</a>
+      <a class="navbar-brand" style="font-weight: 800;" href="./index.php">ONLINE KURS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto text-center mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link text-white" style="font-weight: 700;" href="./index.html">BOSH SAHIFA</a>
+            <a class="nav-link text-white" style="font-weight: 700;" href="./index.php">BOSH SAHIFA</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-weight: 700;" href="./login.html">KIRISH</a>
+            <a class="nav-link" style="font-weight: 700;" href="./login.php">KIRISH</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-weight: 700;" href="./login_reg.html">ROYHATDAN O'TISH</a>
+            <a class="nav-link" style="font-weight: 700;" href="./login_reg.php">ROYHATDAN O'TISH</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-weight: 700;" href="./cours.html">KURSLARIM</a>
+            <a class="nav-link" style="font-weight: 700;" href="./cours.php">KURSLARIM</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " style="font-weight: 700;" href="./kabinet.html">KABINET</a>
+            <a class="nav-link " style="font-weight: 700;" href="./kabinet.php">KABINET</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-weight: 700;" href="./login.html">CHIQISH</a>
+            <a class="nav-link" style="font-weight: 700;" href="./login.php">CHIQISH</a>
           </li>
         </ul>
       </div>

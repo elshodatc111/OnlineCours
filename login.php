@@ -16,21 +16,17 @@
 
   <main class="form-signin w-100 m-auto">
     <form>
-      <h1 class="h3 mb-3 fw-normal w-100 text-center" style="font-weight: 900;">Ro'yhatdan o'tish</h1>
+      <h1 class="h3 mb-3 fw-normal w-100 text-center" style="font-weight: 900;">KIRISH</h1>
       <div class="form-floating mb-3">
-        <p class="w-100 text-center text-danger">Login toki parol xato</p>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder="Parol" required>
-        <label>Ismingiz</label>
+        <p class="w-100 text-center text-danger">Telefon raqam ro'yhatdan o'tmagan</p>
       </div>
       <div class="form-floating mb-3">
         <input type="text" class="form-control phone" value="998" placeholder="Telefon raqami" required>
         <label>Telefon raqam</label>
       </div>
-      <button class="btn btn-primary w-100 py-2" type="submit">Ro'yhatdan o'tish</button>
+      <button class="btn btn-primary w-100 py-2" type="submit">Kirish</button>
       <div class="form-floating mt-2">
-        <a href="./login.html">Kirish</a>
+        <a href="./login_reg.php">Ro'yhatdan o'tish</a>
       </div>
     </form>
   </main>

@@ -26,7 +26,7 @@
       </div>
       <button class="btn btn-primary w-100 py-2" type="submit">Parol olish</button>
       <div class="form-floating">
-        <a href="./login_reg.html">Ro'yhatdan o'tish</a>
+        <a href="./login_reg.php">Ro'yhatdan o'tish</a>
       </div>
     </form>
   </main>
