@@ -20,6 +20,8 @@
       <?php
         if(isset($_GET['registr'])){
           echo "<p class='w-100 text-center text-danger'>Telefon raqam oldin ro'yhatdan o'tgan.</p>";
+        }elseif(isset($_POST['phone'])){
+          echo "<p class='w-100 text-center text-danger'>Telefon raqam noto'g'ri.</p>";
         }
       ?>
       <div class="form-floating mb-3">

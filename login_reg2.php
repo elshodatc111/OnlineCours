@@ -13,16 +13,26 @@
     <link href="./myfolder/css/sign-in.css" rel="stylesheet">
   </head>
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
-
+  
   <main class="form-signin w-100 m-auto">
-    <form>
+    <?php
+      $mytext = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium id odio cumque. Exercitationem assumenda suscipit eveniet, pariatur laborum id natus soluta perspiciatis necessitatibus magnam iste sed blanditiis quibusdam aspernatur optio.";
+      $text="text=".$mytext."&tel=".$_GET['tel']."&phone=".$_GET['phone']."&Random=".$_GET['Random']."&name=".$_GET['name']."&Random1=".$_GET['Random1'];
+      
+    ?>
+    
+    <form action="login_reg3.php?<?php echo $text; ?>" method="POST">
       <h1 class="h3 fw-normal w-100 text-center" style="font-weight: 900;">Kodni tasdiqlang</h1>
       <div class="form-floating">
-        <p class="w-100 text-center text-success p-0 m-0">Tasdiqlash kodi <?php echo $Phone1; ?> raqamiga yuborildi.</p>
-        <p class="w-100 text-center text-danger p-0 m-0" style='display:none;'>Tasdiqlash kodi noto'g'ri.</p>
+        <p class="w-100 text-center text-success p-0 m-0">Tasdiqlash kodi <?php echo $_GET['tel']; ?> raqamiga yuborildi.</p>
+        <?php
+          if(isset($_GET['codeerror'])){
+            echo "<p class='w-100 text-center text-danger p-0 m-0'>Tasdiqlash kodi noto'gri.</p>";
+          }
+        ?>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control code" placeholder="Tasdiqlash kodi" required>
+        <input type="text" name='code' class="form-control code" placeholder="Tasdiqlash kodi" required>
         <label>Tasdiqlash kodi</label>
       </div>
       <button class="btn btn-primary w-100 py-2" type="submit">Kirish</button>
