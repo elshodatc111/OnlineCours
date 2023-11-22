@@ -28,7 +28,7 @@
   <!-- MENU-->
   <nav class="navbar navbar-expand-lg navbar-primary bg-primary ">
     <div class="container">
-      <a class="navbar-brand" style="font-weight: 800;" href="./index.php">ONLINE KURS</a>
+      <a class="navbar-brand" style="font-weight: 800;color:#ffffff;" href="./index.php">ONLINE KURS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto text-center mt-2 mt-lg-0">
@@ -78,7 +78,7 @@
             <table class="table">
               <tr>
                   <td>Kurs narxi:</td>
-                  <td style="text-align: right;font-weight:400"><?php echo $row['Summa'] ?></td>
+                  <td style="text-align: right;font-weight:400"><?php echo number_format($row['Summa'], 0, '.', ' '); ?> so'm</td>
               </tr>
               <tr>
                   <td>Mavzular soni:</td>
@@ -101,10 +101,21 @@
                   <td style="text-align: right;font-weight:400"><?php echo $row['Techer'] ?></td>
               </tr>
               <tr>
-                  <td>A'zolikning davomiyligi:</td>
+                  <td>Davomiyligi:</td>
                   <td style="text-align: right;font-weight:400"><?php echo $row['AzolikVaqt'] ?></td>
               </tr>
             </table>
+            <div class="w-100 text-center">
+              <?php
+                if(isset($_COOKIE['UserID'])){
+              ?>
+              <a href="./index_pay.php?CoursID=<?php echo $_GET['CoursID']; ?>" class="btn btn-success"> Sotib olish</a>
+              <?php
+                }else{
+                  echo "<p class='w-100 text-center text-success'>Kursni sotib olish uchun ro'yhatdan o'ting.</p>";
+                }
+              ?>
+            </div>
           </div>
         </div>
       </div>
