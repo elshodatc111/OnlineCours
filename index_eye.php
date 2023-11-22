@@ -1,4 +1,6 @@
-
+<?php
+  include_once("./config.php");
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
@@ -14,6 +16,13 @@
     <link href="./myfolder/css/sign-in.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./myfolder/css/style.css">
+    <script>
+      <?php
+        if(isset($_GET['commit'])){
+          echo "alert('Kurs haqida fikringiz uchun raxmat.');";
+        }
+      ?>
+    </script>
   </head>
 <body>
   <!-- MENU-->
@@ -55,40 +64,45 @@
       </div>
     </div>
     <!--Asosiy-->
+    <?php
+      $sql = "SELECT * FROM `cours` WHERE `CoursID`='".$_GET['CoursID']."'";
+      $res = $conn->query($sql);
+      $row = $res->fetch();
+    ?>
     <div class="row index_eye">
       <div class="col-lg-4">
         <div class="card" style="width: 100%;">
-          <img src="./myfolder/img/01.jpg" class="card-img-top" alt="...">
+          <img src="./myfolder/img/<?php echo $row['Image'] ?>" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Birinchi kurs Nomi 30 ta belgi</h5>
+            <h5 class="card-title"><?php echo $row['CoursName'] ?></h5>
             <table class="table">
               <tr>
                   <td>Kurs narxi:</td>
-                  <td style="text-align: right;font-weight:700">dd</td>
+                  <td style="text-align: right;font-weight:400"><?php echo $row['Summa'] ?></td>
               </tr>
               <tr>
                   <td>Mavzular soni:</td>
-                  <td style="text-align: right;font-weight:700">dd</td>
+                  <td style="text-align: right;font-weight:400"><?php echo $row['Mavzular'] ?></td>
               </tr>
               <tr>
                   <td>Davomiyligi:</td>
-                  <td style="text-align: right;font-weight:700">dd</td>
+                  <td style="text-align: right;font-weight:400"><?php echo $row['DarsVaqt'] ?></td>
               </tr>
               <tr>
                   <td>Til:</td>
-                  <td style="text-align: right;font-weight:700">dd</td>
+                  <td style="text-align: right;font-weight:400"><?php echo $row['Til'] ?></td>
               </tr>
               <tr>
                   <td>Daraja:</td>
-                  <td style="text-align: right;font-weight:700">dd</td>
+                  <td style="text-align: right;font-weight:400"><?php echo $row['Daraja'] ?></td>
               </tr>
               <tr>
                   <td>O'qituvchi:</td>
-                  <td style="text-align: right;font-weight:700">dd</td>
+                  <td style="text-align: right;font-weight:400"><?php echo $row['Techer'] ?></td>
               </tr>
               <tr>
                   <td>A'zolikning davomiyligi:</td>
-                  <td style="text-align: right;font-weight:700">dd</td>
+                  <td style="text-align: right;font-weight:400"><?php echo $row['AzolikVaqt'] ?></td>
               </tr>
             </table>
           </div>
@@ -109,13 +123,12 @@
                 <div class="row d-flex justify-content-center">
                   <div class="card text-dark">
                     <div class="card-body px-4 py-2">
-                      <h5 class="mb-3 mt-3">Birinchi kurs Nomi 30 ta belgi</h5>
+                      <h5 class="mb-3 mt-3"><?php echo $row['CoursName'] ?></h5>
                       <video controls style="width:100%;" controlsList="nodownload">
-                        <source src="./video/video.mp4" type="video/mp4">
+                        <source src="<?php echo $row['Video'] ?>" type="video/mp4">
                       </video>
                       <br>
-                      <h5>KURS haqida qisqacha matn hajmi 250 belgidan oshmasin.</h5>
-                      <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                      <p><?php echo $row['About'] ?></p>
                     </div>
                   </div>
                 </div>
@@ -128,21 +141,19 @@
                     <div class="card-body px-4 py-2">
                       <h5 class="mb- mt-3">Kurs mavzulari</h5>
                       <table class="table">
-                        <tr>
-                            <td>1.</td>
-                            <td style="text-align: left;">Kuzadv wafd adsf narxi:</td>
-                            <td style="text-align: right;"><i class="bi bi-clock-history"></i> 00:00</td>
-                        </tr>
-                        <tr>
-                          <td>1.</td>
-                          <td style="text-align: left;">Kuzadv wafd adsf narxi:</td>
-                          <td style="text-align: right;"><i class="bi bi-clock-history"></i> 00:00</td>
-                        </tr>
-                        <tr>
-                          <td>1.</td>
-                          <td style="text-align: left;">Kuzadv wafd adsf narxi:</td>
-                          <td style="text-align: right;"><i class="bi bi-clock-history"></i> 00:00</td>
-                        </tr>
+                        <?php
+                          $sql1 = "SELECT * FROM `cours_mavzu` WHERE `CoursID`='".$_GET['CoursID']."' ORDER BY `TR` ASC";
+                          $res1 = $conn->query($sql1);
+                          $i=1;
+                          while ($row1 = $res1->fetch()) {
+                            echo "<tr>
+                                <td style='text-align:center'>".$i.".</td>
+                                <td style='text-align: left;'>".$row1['Mavzu']."</td>
+                                <td style='text-align: right;'><i class='bi bi-clock-history'></i> ".$row1['TimeLine']."</td>
+                            </tr>";
+                            $i++;
+                          }
+                        ?>
                       </table>
                     </div>
                   </div>
@@ -155,46 +166,48 @@
                   <div class="card text-dark">
                     <div class="card-body px-4 py-2">
                       <h5 class="mb-0 mt-3">Kurs haqida fikrlar</h5>
+                      <?php
+                        $sql555 = "SELECT * FROM `comment` WHERE `CoursID`='".$_GET['CoursID']."' ORDER BY `Data` DESC LIMIT 4";
+                        $res555 = $conn->query($sql555);
+                        while ($row555 = $res555->fetch()) {
+                      ?>
                       <hr>
                       <div class="d-flex flex-start">
-                        <img class="rounded-circle shadow-1-strong me-3" src="https://w7.pngwing.com/pngs/364/361/png-transparent-account-avatar-profile-user-avatars-icon.png" alt="avatar" width="40" height="40" />
+                        <img class="rounded-circle shadow-1-strong me-3" src="./myfolder/img/users.jpg" alt="avatar" width="40" height="35" />
                         <div  style="font-size:14px;">
-                          <h6 class="fw-bold m-0 p-0">Maggie Marsh</h6>
-                          <div class="d-flex align-items-center"><i class="m-0 p-0">March 07, 2021</i></div>
-                          <p class="mb-0">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text ever
-                            since the 1500s, when an unknown printer took a galley of type and
-                            scrambled it.
-                          </p>
+                          <h6 class="fw-bold m-0 p-0"><?php echo $row555['FIO']; ?></h6>
+                          <div class="d-flex align-items-center"><i class="m-0 p-0"><?php echo $row555['Vaqt']; ?></i></div>
+                          <p class="mb-0"><?php echo $row555['Text']; ?></p>
                         </div>
                       </div>
-                      <hr>
-                      <div class="d-flex flex-start">
-                        <img class="rounded-circle shadow-1-strong me-3" src="https://w7.pngwing.com/pngs/364/361/png-transparent-account-avatar-profile-user-avatars-icon.png" alt="avatar" width="40" height="40" />
-                        <div  style="font-size:14px;">
-                          <h6 class="fw-bold m-0 p-0">Maggie Marsh</h6>
-                          <div class="d-flex align-items-center"><i class="m-0 p-0">March 07, 2021</i></div>
-                          <p class="mb-0">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text ever
-                            since the 1500s, when an unknown printer took a galley of type and
-                            scrambled it.
-                          </p>
-                        </div>
-                      </div>
+                      <?php } ?>
                     </div>
                   </div>
                 </div>
                 <div class="row d-flex justify-content-center mt-3">
                   <div class="card text-dark">
-                    <div class="card-body px-4 py-1">
-                      <h5 class="mb-0 mt-3">Kurs haqida fikringizni qoldiring</h5>
-                      <form action="" method="post" class="text-center mt-3">
-                        <textarea class="form-control" required></textarea>
-                        <button class="btn btn-primary mt-2 w-100">Izoh qoldirish</button>
-                      </form>
-                    </div>
+                    <?php
+                      if(isset($_COOKIE['UserID'])){
+                        $sql122 = "SELECT * FROM `comment` WHERE `CoursID`='".$_GET['CoursID']."' AND `UserID`='".$_COOKIE['UserID']."'";
+                        $res122 = $conn->query($sql122);
+                        $count = $res122->fetchColumn();
+                        if($count>0){
+
+                        }else{
+                          ?>
+                            <div class="card-body px-4 py-1">
+                              <h5 class="mb-0 mt-3">Kurs haqida fikringizni qoldiring.</h5>
+                              <form action="index_commit.php?CoursID=<?php echo $_GET['CoursID']; ?>" method="POST" class="text-center mt-3">
+                                <textarea class="form-control" name ="Text" required></textarea>
+                                <button class="btn btn-primary mt-2 mb-3">Izoh qoldirish</button>
+                              </form>
+                            </div>
+                          <?php
+                        }
+                      }else{
+                        echo "<p class='my-4'>Kurs haqida fikringizni qoldirish uchun ro'yhatdan o'ting.</p>";
+                      }
+                    ?>
                   </div>
                 </div>
               </div>
