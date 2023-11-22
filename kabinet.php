@@ -1,5 +1,9 @@
-
-<!doctype html>
+<?php
+  include_once("./config.php");
+  if(!isset($_COOKIE['UserID'])){
+    header("location: ./index.php");
+  }
+?>
 <html lang="en" data-bs-theme="auto">
   <head>
     <meta charset="utf-8">
@@ -51,65 +55,53 @@
         <small class="text-info">Shaxsiy kabinet</small>
       </div>
     </div>
-    <!--Asosiy-->
+    
     <div class="row index_eye">
-          <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
-              <nav>
-              <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-                  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Shaxsiy malumotlarim</button>
-                  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Mening kurslarim</button>
-              </div>
-              </nav>
-              <div class="tab-content" id="nav-tabContent">
-              <!-- Mavzu videosi -->
-              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div class="row">
-                  <div class="col-lg-4">
-                    <div class="card pt-2" style="width: 100%;">
-                      <img src="https://leader-id.storage.yandexcloud.net/event_photo/244710/618a3eaea05d4341146829.png" class="card-img-top" style="width: 150px;height:150px;border-radius: 150px;margin:0 auto">
-                      <div class="card-body">
-                        <h5 class="card-title w-100 text-center">Elshod Musurmonov</h5>
-                        <form action="" method="post" class="text-center mt-3">
-                            <label class="custom-file-label">Rasm tanlang (.jpg  .png)</label>
-                            <input type="file" class="form-control" required>
-                            <input type="submit" class="btn btn-primary mt-3" value="Rasmni almashtirish">
-                        </form>
-                      </div>
+      <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
+        <nav>
+          <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Shaxsiy malumotlarim</button>
+              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Mening kurslarim</button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="container">
+              <?php
+                $sql = "SELECT * FROM `users` WHERE `UserID`='".$_COOKIE['UserID']."'";
+                $res = $conn->query($sql);
+                $row = $res->fetch();
+              ?>
+              <form>
+                <div class="form-row">
+                  <div class="form-group pt-3">
+                    <label class="mb-1">Familya ismingiz <span style="color:red">*</span></label>
+                    <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" value="<?php echo $row['FIO']; ?>" class="form-control" placeholder="1234 Main St" required>
+                  </div>
+                  <div class="form-group pt-3">
+                    <label class="mb-1">Yashash joyingiz</label>
+                    <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" value="<?php echo $row['Addres']; ?>" class="form-control" placeholder="Yashash manzilingiz">
+                  </div>
+                  <div class="form-row pt-3 row">
+                    <div class="form-group col-lg-6">
+                      <label class="mb-1">Telefon raqamingiz</label>
+                      <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" value="<?php echo $row['Phone']; ?>" class="form-control phone" disabled>
+                    </div>
+                    <div class="form-group col-lg-6">
+                      <label class="mb-1">Elektron pochtangiz</label>
+                      <input type="email" onkeyup="document.getElementById('buttons').style.display='block';" value="<?php echo $row['Email']; ?>" class="form-control">
                     </div>
                   </div>
-                  <div class="col-lg-8">
-                    <form>
-                      <div class="form-row">
-                        <div class="form-group pt-3">
-                          <label class="mb-1">Familya ismingiz <span style="color:red">*</span></label>
-                          <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" class="form-control" placeholder="1234 Main St" required>
-                        </div>
-                        <div class="form-group pt-3">
-                          <label class="mb-1">Yashash joyingiz</label>
-                          <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" class="form-control" placeholder="Yashash manzilingiz">
-                        </div>
-                        <div class="form-row pt-3">
-                          <div class="form-group col-md-6">
-                            <label class="mb-1">Telefon raqamingiz</label>
-                            <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" class="form-control">
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label class="mb-1">Elektron pochtangiz</label>
-                            <input type="text" onkeyup="document.getElementById('buttons').style.display='block';" class="form-control">
-                          </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3" style="display: none;" id="buttons">O'zgarishlarni saqlash</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <!-- Mavzu haqida testlar -->
-              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <b>KURS haqida qisqacha matn hajmi 250 belgidan oshmasin.</b>
-              </div>
-              </div>
+                  <button type="submit" class="btn btn-primary mt-3" style="display: none;" id="buttons">O'zgarishlarni saqlash</button>
+              </form>
+            </div>
           </div>
-  </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <b>KURS haqida qisqacha matn hajmi 250 belgidan oshmasin.</b>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 

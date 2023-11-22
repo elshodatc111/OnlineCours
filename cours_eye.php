@@ -1,5 +1,9 @@
-
-<!doctype html>
+<?php
+  include_once("./config.php");
+  if(!isset($_COOKIE['UserID'])){
+    header("location: ./index.php");
+  }
+?>
 <html lang="en" data-bs-theme="auto">
   <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
 

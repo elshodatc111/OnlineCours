@@ -45,7 +45,7 @@
     <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
       <div class="">
         <h1 class="h2 mb-0 text-primary">ATKO o'quv markazi</h1>
-        <small class="text-dark">Online darslar platformasi<?php echo $_COOKIE['UserID']; ?></small>
+        <small class="text-dark">Online darslar</small>
       </div>
     </div>
     <!--Asosiy-->
@@ -55,7 +55,6 @@
           <img src="https://leader-id.storage.yandexcloud.net/event_photo/244710/618a3eaea05d4341146829.png" class="card-img-top">
           <div class="card-body text-center">
             <h5 class="card-title">Birinchi kurs Nomi 30 ta belgi</h5>
-            <p class="card-text">Birinchi kurs haqida qisqacha malumot 70 ta belgidan iborat bo'lsin </p>
           </div>
           <div class="card-footer text-muted">
             <table class="table table-borderless p-0 m-0 text-center" style="font-size: 18px;">

@@ -21,11 +21,14 @@
     $rows = $res122->fetch();
     echo $rows['UserID'];
     if($count>0){
+        header("location: ./login2.php?text=".$mytext."&tel=".$Phone1."&phone=".$Phone."&Random=".$Random2."&Random1=".$Random1."&UserID=".$rows['UserID']."");
+        /*
         if(sendMessege($TasdiqlashSMS,$tell)===200){
             header("location: ./login2.php?text=".$mytext."&tel=".$Phone1."&phone=".$Phone."&Random=".$Random2."&Random1=".$Random1."&UserID=".$rows['UserID']."");
         }else{
             header("location: ./login.php?phone1=error");
         }
+        */
     }else{
         header("location: ./login.php?phone=error");
     }
