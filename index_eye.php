@@ -58,7 +58,7 @@
     <div class="row index_eye">
       <div class="col-lg-4">
         <div class="card" style="width: 100%;">
-          <img src="https://leader-id.storage.yandexcloud.net/event_photo/244710/618a3eaea05d4341146829.png" class="card-img-top" alt="...">
+          <img src="./myfolder/img/01.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Birinchi kurs Nomi 30 ta belgi</h5>
             <table class="table">

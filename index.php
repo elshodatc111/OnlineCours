@@ -1,4 +1,6 @@
-
+<?php
+  include_once("./config.php");
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
@@ -50,22 +52,29 @@
     </div>
     <!--Asosiy-->
     <div class="row blog">
-      <div class="col-lg-4 col-sm-6 col-12 my-2">
-        <div class="card">
-          <img src="https://leader-id.storage.yandexcloud.net/event_photo/244710/618a3eaea05d4341146829.png" class="card-img-top">
-          <div class="card-body text-center">
-            <h5 class="card-title">Birinchi kurs Nomi 30 ta belgi</h5>
-          </div>
-          <div class="card-footer text-muted">
-            <table class="table table-borderless p-0 m-0 text-center" style="font-size: 18px;">
-              <tr>
-                <td><b style="color:green;"><i class="bi bi-cash"></i> 2 500 000 so'm</b></td>
-                <td><a href="./index_eye.php" class="btn btn-outline-primary p-0 px-2">BATAFSIL</a></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
+      <?php
+        $sql = "SELECT * FROM `cours` WHERE 1";
+        $res = $conn->query($sql);
+        while ($row = $res->fetch()) {
+          echo "<div class='col-lg-4 col-sm-6 col-12 my-2'>
+            <div class='card'>
+              <img src='./myfolder/img/".$row['Image']."' class='card-img-top'>
+              <div class='card-body text-center'>
+                <h5 class='card-title'>".$row['CoursName']."</h5>
+              </div>
+              <div class='card-footer text-muted'>
+                <table class='table table-borderless p-0 m-0 text-center' style='font-size: 18px;'>
+                  <tr>
+                    <td><b style='color:green;'><i class='bi bi-cash'></i> ".$row['Summa']." so'm</b></td>
+                    <td><a href='./index_eye.php?CoursID=".$row['CoursID']."' class='btn btn-outline-primary p-0 px-2'>BATAFSIL</a></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>";
+        }
+      ?>
+      
     </div>
     
 
